@@ -157,9 +157,12 @@ function addDepartment () {
     }
   })
   .then(newDepartment => {
-    
+    console.log(newDepartment)
+    db.query('INSERT INTO department SET ?', newDepartment, err => {
+      if (err) { console.log(err) }
+      console.log('New department added')
+    })
   })
-  if (err) { console.log(err) }
 }
 
 function updateEmployee () {
