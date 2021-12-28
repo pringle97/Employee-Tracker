@@ -166,10 +166,34 @@ function addDepartment () {
 }
 
 function updateEmployee () {
-
-  if (err) { console.log(err) }
+  db.query('SELECT * FROM employee', (err, employee) => {
+    if (err) { console.log(err) }
+    console.table(employee)
+    inquirer.prompt([
+      {
+        type: 'input',
+        message: 'Enter the first name of the employee you would like to update'
+        name: 'first_name'
+      },
+      {
+        type: 'input',
+        message: 'What new role would you like to apply?'
+        name: 'role_id'
+      }
+    ])
+    .then(updateEmployee => {
+      db.query('UPDATE employee SET ? WHERE ?', [{ role_id: updateEmployee.role_id }, { first_name: updateEmployee.first_name }], () => {
+        if (err) { console.log(err) }
+        console.log('Employee role updated')
+        startPrompt()
+      })
+    })
+  })
 }
 
 function leave () {
-
+  console.log('Have a nice day')
+  setTimeout((function () {
+    return process.exit(22);
+  }), 1000);
 }
