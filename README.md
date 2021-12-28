@@ -19,6 +19,30 @@
   ## Description
   application for employees to view and add data on departments, roles, and employees into a database
 
+  ## Installation
+
+  mysql2, inquirer, and console.table are needed for the program to run.
+
+  
+
+  ## Usage
+
+  type node index.js in terminal to run program
+
+  
+
+  ## Contributing
+
+  none
+
+  
+
+  ## Tests
+
+  none
+
+  
+
   ## License
 
   The Unlicense
