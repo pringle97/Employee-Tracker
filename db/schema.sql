@@ -1,11 +1,13 @@
-CREATE DATABASE employeeTracker_db;
+CREATE DATABASE employeetracker_db;
 
-USE employeeTracker_db;
+USE employeetracker_db;
 
 CREATE TABLE department (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(30) NOT NULL
 );
+
+USE employeetracker_db;
 
 CREATE TABLE role (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -13,6 +15,8 @@ CREATE TABLE role (
     salary DECIMAL NOT NULL,
     department_id INT NOT NULL
 );
+
+USE employeetracker_db;
 
 CREATE TABLE employee (
 	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

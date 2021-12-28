@@ -9,9 +9,10 @@ const startPrompt = () => {
   inquirer.prompt([
     {
       type: 'list',
-      message: 'Choose an option'
-      choices: ['View Employees', 'View Departments', 'View Roles', 'Add Employee', 'Add Role', 'Add Department', 'Update Employee', 'Leave'],
-    }
+      name: 'choice',
+      message: 'Choose an option',
+      choices: ['View Employees', 'View Departments', 'View Roles', 'Add Employee', 'Add Role', 'Add Department', 'Update Employee', 'Leave']
+    },
   ])
   .then(({ choice }) => {
     switch (choice) {
@@ -79,10 +80,11 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-  db.query('SELECT * FROM role')
-  if (err) { console.log(err) }
-  console.table(role)
-  startPrompt()
+  db.query('SELECT * FROM role', (err, role) => {
+   if (err) { console.log(err) }
+   console.table(role)
+   startPrompt()
+ })
 } 
 
 function addEmployee() {
@@ -121,7 +123,7 @@ function addEmployee() {
 }
 
 function addRole () {
-  inquirer.prompt({
+  inquirer.prompt([
     {
       type: 'input',
       name: 'title',
@@ -137,7 +139,7 @@ function addRole () {
       name: 'department_id',
       message: 'Enter employee department ID'
     }
-  })
+  ])
   .then(newRole => {
     console.log(newRole)
     db.query('INSERT INTO role SET ?', newRole, err => {
@@ -149,18 +151,19 @@ function addRole () {
 }
 
 function addDepartment () {
-  inquirer.prompt({
+  inquirer.prompt([
     {
       type: 'input',
       name: 'name',
       message: 'Enter name of new department'
     }
-  })
+  ])
   .then(newDepartment => {
     console.log(newDepartment)
     db.query('INSERT INTO department SET ?', newDepartment, err => {
       if (err) { console.log(err) }
       console.log('New department added')
+      startPrompt()
     })
   })
 }
@@ -172,13 +175,13 @@ function updateEmployee () {
     inquirer.prompt([
       {
         type: 'input',
+        name: 'first_name',
         message: 'Enter the first name of the employee you would like to update'
-        name: 'first_name'
       },
       {
         type: 'input',
+        name: 'role_id',
         message: 'What new role would you like to apply?'
-        name: 'role_id'
       }
     ])
     .then(updateEmployee => {
