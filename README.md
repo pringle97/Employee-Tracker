@@ -19,30 +19,6 @@
   ## Description
   application for employees to view and add data on departments, roles, and employees into a database
 
-  ## Installation
-
-  *Steps required to install project and how to get the development environment running:*
-
-  
-
-  ## Usage
-
-  *Instructions and examples for use:*
-
-  
-
-  ## Contributing
-
-  *If you would like to contribute it, you can follow these guidelines for how to do so.*
-
-  
-
-  ## Tests
-
-  *Tests for application and how to run them:*
-
-  
-
   ## License
 
   The Unlicense
