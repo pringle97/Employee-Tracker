@@ -81,10 +81,10 @@ function viewDepartments() {
 
 function viewRoles() {
   db.query('SELECT * FROM role', (err, role) => {
-   if (err) { console.log(err) }
-   console.table(role)
-   startPrompt()
- })
+    if (err) { console.log(err) }
+    console.table(role)
+    startPrompt()
+  })
 } 
 
 function addEmployee() {
@@ -119,7 +119,6 @@ function addEmployee() {
       startPrompt()
     })
   })
-  
 }
 
 function addRole () {

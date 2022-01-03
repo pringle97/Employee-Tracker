@@ -52,3 +52,5 @@
   GitHub: https://github.com/pringle97
 
   Email: malia.pringle@gmail.com
+
+  video of application: https://drive.google.com/file/d/19NtooSPG62nWew_PwUeYF_4g44Sd46bp/view?usp=sharing
